@@ -1,47 +1,47 @@
 {% set name = "azure-mgmt-authorization" %}
-{% set version = "0.60.0" %}
+{% set version = "1.0.0" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.zip
-  sha256: 31e875a34ac2c5d6fefe77b4a8079a8b2bdbe9edb957e47e8b44222fb212d6a7
+  sha256: 9a9fc16866b46387853381ab4fa0f84c1765e0afea5b0124709ea9fae10ee752
 
 build:
   number: 0
   noarch: python
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv "
+  script: '{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv '
 
 requirements:
   host:
-  - pip
-  - python
+    - pip
+    - python
   run:
-  - azure-common >=1.1,<2
-  - msrest >=0.5.0
-  - msrestazure >=0.4.32,<2.0.0
-  - python
+    - azure-common >=1.1,<2
+    - msrest >=0.5.0
+    - msrestazure >=0.4.32,<2.0.0
+    - python
 
 test:
   imports:
-  - azure.mgmt.authorization
-  - azure.mgmt.authorization.v2015_06_01
-  - azure.mgmt.authorization.v2015_06_01.models
-  - azure.mgmt.authorization.v2015_06_01.operations
-  - azure.mgmt.authorization.v2015_07_01
-  - azure.mgmt.authorization.v2015_07_01.models
-  - azure.mgmt.authorization.v2015_07_01.operations
-  - azure.mgmt.authorization.v2018_01_01_preview
-  - azure.mgmt.authorization.v2018_01_01_preview.models
-  - azure.mgmt.authorization.v2018_01_01_preview.operations
-  - azure.mgmt.authorization.v2018_07_01_preview
-  - azure.mgmt.authorization.v2018_07_01_preview.models
-  - azure.mgmt.authorization.v2018_07_01_preview.operations
-  - azure.mgmt.authorization.v2018_09_01_preview
-  - azure.mgmt.authorization.v2018_09_01_preview.models
-  - azure.mgmt.authorization.v2018_09_01_preview.operations
+    - azure.mgmt.authorization
+    - azure.mgmt.authorization.v2015_06_01
+    - azure.mgmt.authorization.v2015_06_01.models
+    - azure.mgmt.authorization.v2015_06_01.operations
+    - azure.mgmt.authorization.v2015_07_01
+    - azure.mgmt.authorization.v2015_07_01.models
+    - azure.mgmt.authorization.v2015_07_01.operations
+    - azure.mgmt.authorization.v2018_01_01_preview
+    - azure.mgmt.authorization.v2018_01_01_preview.models
+    - azure.mgmt.authorization.v2018_01_01_preview.operations
+    - azure.mgmt.authorization.v2018_07_01_preview
+    - azure.mgmt.authorization.v2018_07_01_preview.models
+    - azure.mgmt.authorization.v2018_07_01_preview.operations
+    - azure.mgmt.authorization.v2018_09_01_preview
+    - azure.mgmt.authorization.v2018_09_01_preview.models
+    - azure.mgmt.authorization.v2018_09_01_preview.operations
 
 about:
   home: https://github.com/Azure/azure-sdk-for-python
@@ -54,4 +54,4 @@ about:
 
 extra:
   recipe-maintainers:
-  - andreyz4k
+    - andreyz4k
