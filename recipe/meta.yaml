@@ -1,57 +1,57 @@
 {% set name = "azure-mgmt-authorization" %}
-{% set version = "0.60.0" %}
+{% set version = "2.0.0" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.zip
-  sha256: 31e875a34ac2c5d6fefe77b4a8079a8b2bdbe9edb957e47e8b44222fb212d6a7
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/azure-mgmt-authorization-{{ version }}.zip
+  sha256: 0776edc4980be940a8602eefc0372b4d1a1fa26caa46e3c0234e0c7a0feda4ec
 
 build:
   number: 0
   noarch: python
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv "
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
-  - pip
-  - python
+    - pip
+    - python >=3.6
   run:
-  - azure-common >=1.1,<2
-  - msrest >=0.5.0
-  - msrestazure >=0.4.32,<2.0.0
-  - python
+    - python >=3.6
+    - azure-common >=1.1,<=1.2.0
+    - azure-mgmt-core >=1.2.0,<2.0.0
+    - msrest >=0.6.21
 
 test:
   imports:
-  - azure.mgmt.authorization
-  - azure.mgmt.authorization.v2015_06_01
-  - azure.mgmt.authorization.v2015_06_01.models
-  - azure.mgmt.authorization.v2015_06_01.operations
-  - azure.mgmt.authorization.v2015_07_01
-  - azure.mgmt.authorization.v2015_07_01.models
-  - azure.mgmt.authorization.v2015_07_01.operations
-  - azure.mgmt.authorization.v2018_01_01_preview
-  - azure.mgmt.authorization.v2018_01_01_preview.models
-  - azure.mgmt.authorization.v2018_01_01_preview.operations
-  - azure.mgmt.authorization.v2018_07_01_preview
-  - azure.mgmt.authorization.v2018_07_01_preview.models
-  - azure.mgmt.authorization.v2018_07_01_preview.operations
-  - azure.mgmt.authorization.v2018_09_01_preview
-  - azure.mgmt.authorization.v2018_09_01_preview.models
-  - azure.mgmt.authorization.v2018_09_01_preview.operations
+    - azure.mgmt.authorization
+    - azure.mgmt.authorization.aio
+  commands:
+    - pip check
+  requires:
+    - pip
 
 about:
   home: https://github.com/Azure/azure-sdk-for-python
-  license: MIT
-  license_family: MIT
-  license_file: LICENSE
   summary: Microsoft Azure Authorization Management Client Library for Python
-  doc_url: https://docs.microsoft.com/python/api/overview/azure/authorization
+  license: MIT
+  license_file:
+    - LICENSE
+  description: |
+    This is the Microsoft Azure Compute Management Client Library. 
+    This package has been tested with Python 3.6+. For a more complete 
+    view of Azure libraries, see the [azure sdk python release](https://aka.ms/azsdk/python/all).
+
+    To learn how to use this package, see the [quickstart guide](https://aka.ms/azsdk/python/mgmt).
+
+    PyPI: [https://pypi.org/project/azure-mgmt-authorization/](https://pypi.org/project/azure-mgmt-authorization/)
+
+  doc_url: https://azure.github.io/azure-sdk-for-python
   dev_url: https://github.com/Azure/azure-sdk-for-python
 
 extra:
   recipe-maintainers:
-  - andreyz4k
+    - andreyz4k
+    - sugatoray
