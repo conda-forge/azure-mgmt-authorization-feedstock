@@ -47,7 +47,7 @@ test:
     - azure.mgmt.authorization.v2018_09_01_preview.operations
 
 about:
-  home: https://github.com/Azure/azure-sdk-for-python
+  home: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/authorization/azure-mgmt-authorization
   license: MIT
   license_family: MIT
   license_file: LICENSE
